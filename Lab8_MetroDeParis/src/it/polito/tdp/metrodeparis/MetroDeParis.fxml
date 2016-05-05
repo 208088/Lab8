@@ -1,7 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-	
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.polito.tdp.metrodeparis.MetroDeParisController">
-	<!-- TODO Add Nodes -->
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.65" fx:controller="it.polito.tdp.metrodeparis.MetroDeParisController">
+   <center>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER" spacing="40.0">
+               <children>
+                  <ImageView fitHeight="121.0" fitWidth="121.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../../rsc/RATP.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" spacing="10.0">
+                     <children>
+                        <Label text="Seleziona una stazione di partenza :" />
+                        <ComboBox fx:id="comboPartenza" prefWidth="150.0" />
+                        <Label text="Seleziona una stazione di arrivo" />
+                        <ComboBox fx:id="comboArrivo" prefWidth="150.0" />
+                     </children>
+                  </VBox>
+                  <Button fx:id="btnCalcola" mnemonicParsing="false" onAction="#DoCalcola" text="Calcola Distanza" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+            </HBox>
+            <TextArea fx:id="txtArea" editable="false" />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="7.0" left="7.0" right="7.0" top="7.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+   <top>
+      <Label text="Lab_8_MetroDeParis" BorderPane.alignment="CENTER" />
+   </top>
 </BorderPane>
