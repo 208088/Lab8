@@ -114,7 +114,7 @@ public class Model2 {
 	}
 
 	public List<Fermata2> trovaCammino(Fermata p, Fermata a) {
-
+		List<Fermata2> percorsoTemp= new ArrayList<Fermata2>();
 		List<Fermata2> percorso= new ArrayList<Fermata2>();
 		double peso=100000.0;
 		//DijkstraShortestPath<Fermata2, DefaultWeightedEdge> dijkstra = new DijkstraShortestPath<Fermata2, DefaultWeightedEdge>(grafo, p, a);
@@ -124,9 +124,10 @@ public class Model2 {
 			for (Fermata2 fa : farrivi) {
 				DijkstraShortestPath<Fermata2, DefaultWeightedEdge> dijkstra = new DijkstraShortestPath<Fermata2, DefaultWeightedEdge>(grafo, fp, fa);
 				path = dijkstra.getPath();
-				if(path!=null && peso> (dijkstra.getPathLength()+30*(percorso.size()-2)/3600))
+				percorsoTemp= Graphs.getPathVertexList(path);
+				if(path!=null && peso> (dijkstra.getPathLength()+30*(percorsoTemp.size()-2)/3600))
 				{
-					peso=dijkstra.getPathLength()+30*(percorso.size()-2)/3600;
+					peso=dijkstra.getPathLength()+30*(percorsoTemp.size()-2)/3600;
 					percorso=Graphs.getPathVertexList(path);
 				}
 			}
